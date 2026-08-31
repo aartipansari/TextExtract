@@ -1,0 +1,304 @@
+<html>
+
+<head>
+	<meta charset='utf-8'>
+	<meta http-equiv='X-UA-Compatible' content='IE=edge'>
+	<title>Image To Text</title>
+	<meta name='viewport' content='width=device-width, initial-scale=1'>
+	<link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css">
+	<link rel="stylesheet" href="style/ocr.css">
+	<script src="https://code.jquery.com/jquery-3.3.1.min.js"></script>
+	<script src="https://kit.fontawesome.com/4414288e8e.js"></script>
+	<script src='js/tesseract.min.js'></script>
+
+	<link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.8.2/css/all.css">
+	<!-- Google Fonts -->
+	<link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Roboto:300,400,500,700&display=swap">
+	<!-- Bootstrap core CSS -->
+	<link href="https://cdnjs.cloudflare.com/ajax/libs/twitter-bootstrap/4.5.0/css/bootstrap.min.css" rel="stylesheet">
+	<!-- Material Design Bootstrap -->
+	<link href="https://cdnjs.cloudflare.com/ajax/libs/mdbootstrap/4.19.0/css/mdb.min.css" rel="stylesheet">
+
+	<!-- JQuery -->
+	<script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+	<!-- Bootstrap tooltips -->
+	<script type="text/javascript"
+		src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.4/umd/popper.min.js"></script>
+	<!-- Bootstrap core JavaScript -->
+	<script type="text/javascript"
+		src="https://cdnjs.cloudflare.com/ajax/libs/twitter-bootstrap/4.5.0/js/bootstrap.min.js"></script>
+	<!-- MDB core JavaScript -->
+	<script type="text/javascript"
+		src="https://cdnjs.cloudflare.com/ajax/libs/mdbootstrap/4.19.0/js/mdb.min.js"></script>
+</head>
+
+<body>
+
+	<style type="text/css">
+		/* Required for full background image */
+
+		html,
+		body,
+		header,
+		.view {
+			height: 100%;
+		}
+
+		@media (max-width: 740px) {
+
+			html,
+			body,
+			header,
+			.view {
+				height: 1200px;
+			}
+		}
+
+		@media (min-width: 600px) and (max-width: 650px) {
+
+			html,
+			body,
+			header,
+			.view {
+				height: 600px;
+			}
+		}
+
+		.btn .fa {
+			margin-left: 3px;
+		}
+
+		.top-nav-collapse {
+			background-color: #424f95 !important;
+		}
+
+		.navbar:not(.top-nav-collapse) {
+			background: transparent !important;
+		}
+
+		@media (max-width: 991px) {
+			.navbar:not(.top-nav-collapse) {
+				background: #424f95 !important;
+			}
+		}
+
+		.btn-white {
+			color: black !important;
+		}
+
+		h6 {
+			line-height: 1.7;
+		}
+
+		.rgba-gradient {
+			background: -moz-linear-gradient(45deg, rgba(42, 27, 161, 0.7), rgba(29, 210, 177, 0.7) 100%);
+			background: -webkit-linear-gradient(45deg, rgba(42, 27, 161, 0.7), rgba(29, 210, 177, 0.7) 100%);
+			background: -webkit-gradient(linear, 45deg, from(rgba(42, 27, 161, 0.7)), to(rgba(29, 210, 177, 0.7)));
+			background: -o-linear-gradient(45deg, rgba(42, 27, 161, 0.7), rgba(29, 210, 177, 0.7) 100%);
+			background: linear-gradient(to 45deg, rgba(42, 27, 161, 0.7), rgba(29, 210, 177, 0.7) 100%);
+		}
+
+		.file-field.medium .file-path-wrapper {
+			height: 3rem;
+		}
+
+		.file-field.medium .file-path-wrapper .file-path {
+			height: 2.8rem;
+		}
+
+		.file-field.big-2 .file-path-wrapper {
+			height: 3.7rem;
+		}
+
+		.file-field.big-2 .file-path-wrapper .file-path {
+			height: 3.5rem;
+		}
+	</style>
+
+	
+
+
+
+	<!-- nav bar -->
+	<header>
+		<!--Navbar-->
+		<nav class="mb-1 navbar navbar-expand-lg navbar-dark fixed-top scrolling-navbar">
+			<div class="container">
+				<a class="navbar-brand" href="#">
+					<strong>PROJECT - TEXT EXTRACTION</strong>
+				</a>
+				<button class="navbar-toggler" type="button" data-toggle="collapse"
+					data-target="#navbarSupportedContent-7" aria-controls="navbarSupportedContent-7"
+					aria-expanded="false" aria-label="Toggle navigation">
+					<span class="navbar-toggler-icon"></span>
+				</button>
+				<div class="collapse navbar-collapse" id="navbarSupportedContent-7">
+					<ul class="navbar-nav mr-auto font-weight-bold">
+						<li class="nav-item">
+							<a class="nav-link" href="#">Home</a>
+						</li>
+						<li class="nav-item">
+							<a class="nav-link" href="#">Link</a>
+						</li>
+						<li class="nav-item">
+							<a class="nav-link" href="#">Profile</a>
+						</li>
+					</ul>
+					<!-- Icons -->
+					<ul class="navbar-nav d-flex flex-row">
+
+						<li class="nav-item me-3 me-lg-0">
+							<a class="nav-link" href="https://www.google.com/"
+								rel="nofollow" target="_blank">
+								<i class="fab fa-google"></i>
+							</a>
+						</li>
+						<li class="nav-item me-3 me-lg-0">
+							<a class="nav-link" href="https://in.linkedin.com" rel="nofollow"
+								target="_blank">
+								<i class="fab fa-linkedin-in"></i>
+							</a>
+						</li>
+						<li class="nav-item me-3 me-lg-0">
+							<a class="nav-link" rel="nofollow" href="https://www.instagram.com/" target="_blank">
+								<i class="fab fa-instagram"></i>
+							</a>
+						</li>
+						<li class="nav-item me-3 me-lg-0">
+							<a class="nav-link" href="https://github.com" rel="nofollow"
+								target="_blank">
+								<i class="fab fa-github"></i>
+							</a>
+						</li>
+					</ul>
+					<!-- Icons end -->
+				</div>
+			</div>
+		</nav>
+		<!-- nav bar end  -->
+
+		<!-- Full Page Intro -->
+		<div class="view"
+			style="background-image: url('https://mdbcdn.b-cdn.net/img/Photos/Others/architecture.jpg'); background-repeat: no-repeat; background-size: cover; background-position: center center;">
+			<!-- Mask & flexbox options-->
+			<div class="mask rgba-gradient d-flex justify-content-center align-items-center">
+				<!-- Content -->
+				<div class="container">
+					<!--Grid row-->
+					<div class="row">
+						<!--Grid column-->
+						<div class="col-md-12 white-text text-center text-md-left xl-5 mb-5 mt-5 mt-5 wow fadeInLeft"
+							data-wow-delay="0.3s">
+							<h1 class="h1-responsive font-weight-bold mt-sm-5 text-center">TEXT EXTRACTION</h1>
+							<hr class="hr-light">
+								<h4 class="mb-4 text-center">
+									Successful and
+									unsuccessful people
+									do not vary greatly in
+									their abilities. <br> They
+									vary in their desires to
+									reach their potential.
+								</h4>
+
+							
+							<div class="container mt-5">
+								<div class="row">
+									<div class="col-12 col-md-6">
+										<select id="langsel" class="btn btn-primary btn-lg dropdown-toggle"
+											data-mdb-toggle="dropdown" aria-expanded="false">
+											<option value='ara' class="dropdown-item"> Arabic </option>
+											<option value='ben' class="dropdown-item"> Bengali </option>
+										    <option value='chi_sim' class="dropdown-item"> Chinese </option>
+											<!-- <option value='chi_tra' class="dropdown-item"> Traditional Chinese </option> -->
+											<option value='deu' class="dropdown-item"> German </option>
+											<option value='ell' class="dropdown-item"> Greek </option>
+											<option value='eng' selected class="dropdown-item"> English </option>
+											<option value='enm' class="dropdown-item"> English (UK) </option>
+											<!-- <option value='equ' class="dropdown-item"> Math </option>	 -->
+											<option value='fra' class="dropdown-item"> French </option>
+											<!-- <option value='frm' class="dropdown-item"> French (Old) </option> -->
+											<option value='hin' class="dropdown-item"> Hindi </option>
+											<option value='ind' class="dropdown-item"> Indonesian </option>
+											<option value='ita' class="dropdown-item"> Italian </option>
+											<option value='jpn' class="dropdown-item"> Japanese </option>
+											<option value='kan' class="dropdown-item"> Kannada </option>
+											<!-- <option value='lav' class="dropdown-item"> Latvian </option> -->
+											<option value='mal' class="dropdown-item"> Malayalam </option>  
+											<!-- <option value='mkd' class="dropdown-item"> Macedonian </option> -->
+											<!-- <option value='mlt' class="dropdown-item"> Maltese </option> -->
+											<!-- <option value='nld' class="dropdown-item"> Dutch </option> -->
+											<option value='nor' class="dropdown-item"> Norwegian </option>
+											<!-- <option value='pol' class="dropdown-item"> Polish </option> -->
+											<!-- <option value='por' class="dropdown-item"> Portuguese </option> -->
+											<option value='ron' class="dropdown-item"> Romanian </option>
+											<option value='rus' class="dropdown-item"> Russian </option>
+											<!-- <option value='slk' class="dropdown-item"> Slovakian </option> -->
+											<!-- <option value='slv' class="dropdown-item"> Slovenian </option> -->
+											<option value='spa' class="dropdown-item"> Spanish </option>
+											<option value='sqi' class="dropdown-item"> Albanian </option>
+											<!-- <option value='srp' class="dropdown-item"> Serbian (Latin) </option>   -->
+											<!-- <option value='swe' class="dropdown-item"> Swedish </option> -->
+											<option value='tam' class="dropdown-item"> Tamil </option>
+											<option value='tel' class="dropdown-item"> Telugu </option>
+											<option value='tgl' class="dropdown-item"> Tagalog </option>
+											<!-- <option value='tha' class="dropdown-item"> Thai </option> -->
+											<option value='tur' class="dropdown-item"> Turkish </option>
+										</select>
+									</div>
+									<div class="col-12 col-md-4 mt-md-0 ml-1.5">
+										<div class="box">
+											<input type="file" name="file-1[]" id="file-1"
+												class="inputfile inputfile-1 btn-primary btn-sm float-left file-path validate"
+												data-multiple-caption="{count} files selected" multiple />
+											<label for="file-1"><svg xmlns="http://www.w3.org/2000/svg" width="20"
+													height="13" viewBox="0 0 20 13">
+													<path
+														d="M10 0l-5.2 4.9h3.3v5.1h3.8v-5.1h3.3l-5.2-4.9zm9.3 11.5l-3.2-2.1h-2l3.4 2.6h-3.5c-.1 0-.2.1-.2.1l-.8 2.3h-6l-.8-2.2c-.1-.1-.1-.2-.2-.2h-3.6l3.4-2.6h-2l-3.2 2.1c-.4.3-.7 1-.6 1.5l.6 3.1c.1.5.7.9 1.2.9h16.3c.6 0 1.1-.4 1.3-.9l.6-3.1c.1-.5-.2-1.2-.7-1.5z" />
+												</svg> <span>Choose a file&hellip;</span></label>
+										</div>
+									</div>
+								</div>
+								<hr class="hr-light">
+								<div class="row mb-4">
+									<div class="col-12 col-md-5">
+										<div class="image-container view overlay rounded z-depth-2 mb-lg-0 mb-4">
+											<img id="selected-image" src="images/Funny-Minion-Quotes.jpg"
+												class="col-12 p-0" />
+										</div>
+									</div>
+									<div class="col-12 col-md-1">
+										<i id="arrow-right" class="fas fa-arrow-right d-none d-md-block"></i>
+										<i id="arrow-down" class="fas fa-arrow-down d-block d-md-none"></i>
+									</div>
+									<div class="col-12 col-md-6">
+										<div id="log" class="border border-success">
+											<span id="startPre" style="font-size: 18px; color: orange;">
+												<a id="startLink" href="#" style="color: orange;">Click here to
+													recognize text in the demo</a>
+												<br /> or choose your own image
+											</span>
+										</div>
+									</div>
+								</div>
+							</div>
+						</div>
+					</div>
+				</div>
+			</div>
+			<!-- Footer -->
+		</div>
+		<footer class="page-footer font-small blue">
+
+			<!-- Copyright -->
+			<div class="footer-copyright text-center ">© 2021 Made by Student's of SRM Institute of Science and Technology
+				<h6>Harish Pansari</h6>
+			</div>
+			<!-- Copyright -->
+
+		</footer>
+		<!-- Footer -->
+	</header>
+	<script src="js/tesseract-ocr.js"></script>
+</body>
+
+</html>
