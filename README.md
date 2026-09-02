@@ -4,7 +4,11 @@ TextExtract is a web application designed to simplify the process of extracting 
 
 ## Technology Stack
 Frontend: HTML5, CSS3, JavaScript (ES6+)
+
 Architecture: Client-side web application (no backend server required)
+
 OCR Engine: Tesseract.js - Pure JavaScript implementation of Tesseract OCR
+
 Deployment: GitHub Pages
+
 Browser Compatibility: Chrome, Firefox, Safari, Edge (all modern versions
