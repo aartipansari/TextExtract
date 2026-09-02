@@ -14,7 +14,7 @@ TextExtract is a web application designed to simplify the process of extracting 
 * Browser Compatibility: Chrome, Firefox, Safari, Edge (all modern versions
 
 ## Project Structure 
-
+```
 TextExtract/
 ├── index.html          
 ├── js/                 
@@ -23,16 +23,6 @@ TextExtract/
 ├── style/              
 │   └── style.css       
 ├── images/             
-└── README.md          
+└── README.md
+```       
 
-## Contributing
-Contributions are welcome! Here's how you can help:
-
-### 1.Fork the repository
-
-git clone https://github.com/aartipansari
-
-### 2.Create a Feature Branch
-```
-git checkout -b feature/your-feature-name
-```
