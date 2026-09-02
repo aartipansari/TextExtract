@@ -13,14 +13,14 @@ TextExtract is a web application designed to simplify the process of extracting 
 
 * Browser Compatibility: Chrome, Firefox, Safari, Edge (all modern versions
 
-## Project Structure
+## Project Structure ```
 
 TextExtract/
-├── index.html          # Main HTML file
-├── js/                 # JavaScript files
-│   ├── script.js       # Main application logic
-│   └── ocr.js          # OCR processing functions
-├── style/              # CSS stylesheets
-│   └── style.css       # Application styling
-├── images/             # Static images and icons
-└── README.md           # Documentation
+├── index.html          
+├── js/                 
+│   ├── script.js       
+│   └── ocr.js         
+├── style/              
+│   └── style.css       
+├── images/             
+└── README.md          
