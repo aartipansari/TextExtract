@@ -25,4 +25,6 @@ TextExtract/
 ├── images/             
 └── README.md
 ```       
+## 🌐 Live Demo: 
+https://aartipansari.github.io/TextExtract/
 
