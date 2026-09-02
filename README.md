@@ -27,8 +27,8 @@ TextExtract/
 ```       
 
 
-##Features
-* Multilingual Support: Extract text from 20+ languages including English, Hindi, Chinese, Arabic, Japanese, and more
+## Features
+* Multilingual Support: Extract text from 20+ languages including English, Hindi, Chinese, Arabic, Japanese and more
 * Image Upload: Support for common image formats (PNG, JPG, JPEG, GIF, WebP, etc.)
 * Advanced OCR: Powered by Tesseract.js for accurate text recognition
 * Demo Mode: Test the tool with pre-loaded sample images
